@@ -1,25 +1,24 @@
-# Use a stable Node.js base image
+# Use a lightweight Node.js image
 FROM node:16-alpine
 
-# Set the working directory inside the container
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy dependency files first to leverage caching
-COPY package.json package-lock.json ./
+# Copy only package.json and package-lock.json to leverage caching
+COPY package.json ./ 
+COPY package-lock.json ./ || echo "No package-lock.json found, continuing without it."
 
-# Set a mirror for npm registry and increase timeout
-RUN npm config set registry https://registry.npmjs.org && \
-    npm config set timeout 600000 && \
-    npm cache clean --force && \
-    npm install
+# Install dependencies
+RUN npm config set timeout 600000 && npm cache clean --force && npm install
 
-# Copy the rest of the application code
+# Copy the application code
 COPY . .
 
 # Expose the application port
 EXPOSE 3000
 
-# Command to run the application
+# Start the application
 CMD ["npm", "start"]
+
 
 
