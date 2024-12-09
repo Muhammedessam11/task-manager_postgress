@@ -1,28 +1,21 @@
 {
   "name": "frontend-task-manager",
   "version": "1.0.0",
-  "description": "Frontend for the Task Manager application",
+  "description": "Frontend for the task manager application",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "author": "Muhammad Essam",
-  "license": "MIT",
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1"
   },
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-plugin-flowtype": "^8.0.3"
-  },
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
-  }
+  "devDependencies": {},
+  "author": "Muhammad Essam",
+  "license": "ISC"
 }
 
